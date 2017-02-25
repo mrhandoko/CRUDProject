@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+    </style>
+</style>
+  </head>
+  <body>
+    <center>
+      <h1><%= title %></h1>
+      <p>Welcome to <%= title %></p>
+      <p>Ini halaman index item</p>
+      <p><a href="/items/new">New</a>
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Item</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% items.forEach(function(item){ %>
+          <tr>
+            <td><%=item.id%></td>
+            <td><%=item.product_name%></td>
+            <td><%=item.quantity%></td>
+            <td><%=item.Category.name%></td>
+            <td> <a href="/items/edit/<%=item.id%>">Edit</a> | <a href="/items/delete/<%=item.id%>" onclick="return confirm('Are you sure you want to delete product?')">Delete</a> </td>
+          </tr>
+          <% })%>
+        </tbody>
+      </table>
+    </center>
+  </body>
+</html>
